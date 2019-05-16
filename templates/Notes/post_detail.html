@@ -1,0 +1,60 @@
+
+{% load static %}
+{% load thumbnail %}
+{% block head_title %}
+
+{% endblock head_title %}
+
+
+<style>
+body{
+        background-color: #00563D
+    }
+    p {
+    font-family: "Times New Roman", Times, serif;
+}
+
+</style>
+
+{% block content %}
+<div class='col-sm-6 col-sm-offset-3'>
+
+
+<h1>Topic:{{ instance.topic }} </h1>
+    <p class="Times New Roman"><b>AUTHOR:</b><br>
+ {{ instance.user.get_username}}</p>
+
+
+     {% thumbnail instance.image1 "x500" as im %}
+         <img src="{{ im.url }}">
+     {% endthumbnail %} <br>
+    {% thumbnail instance.image "x500" as im %}
+         <img src="{{ im.url }}">
+     {% endthumbnail %} <br>
+    {% thumbnail instance.image2 "x500" as im %}
+         <img src="{{ im.url }}">
+     {% endthumbnail %} <br>
+    {% thumbnail instance.image3 "x500" as im %}
+         <img src="{{ im.url }}">
+     {% endthumbnail %} <br>
+
+
+
+
+
+
+<div class='row'>
+<div class='col-sm-12'>
+
+{{ instance.description|linebreaks }}
+
+
+<br/>
+
+
+</div>
+</div>
+</div>
+
+
+{% endblock content %}
